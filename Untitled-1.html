@@ -1,55 +1,222 @@
-<html>
-<head>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/> -->
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Health Care
+  </title>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        header .logo div {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #3b82f6;
+            border-radius: 0.25rem;
+        }
+        
+        header .logo span {
+            margin-left: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        
+        nav a {
+            color: #4b5563;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #3b82f6;
+        }
+        
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem;
+        }
+        
+        main .text-section {
+            width: 50%;
+        }
+        
+        main .text-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        main .text-section p {
+            margin-top: 1rem;
+            color: #4b5563;
+        }
+        
+        main .text-section button {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: white;
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+            border-radius: 9999px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        main .text-section button:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        main .image-section {
+            width: 50%;
+        }
+        
+        main .image-section img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+  </style>
  </head>
- <body class="bg-gray-50 font-roboto">
-  <header class="bg-white shadow-md">
-   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-    <div class="flex items-center">
-     <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-      <i class="fas fa-cube text-white">
-      </i>
-     </div>
-     <span class="ml-2 text-xl font-bold">
-      Logo
-     </span>
+ <body>
+  <header>
+   <div class="logo">
+    <div>
     </div>
-    <nav class="flex space-x-8">
-     <a class="text-blue-500 font-semibold" href="#">
-      Home
-     </a>
-     <a class="text-gray-700" href="#">
-      Features
-     </a>
-     <a class="text-gray-700" href="#">
-      About
-     </a>
-     <a class="text-gray-700" href="#">
-      Contact
-     </a>
-    </nav>
+    <span>
+     Logo
+    </span>
    </div>
+   <nav>
+    <a href="#">
+     Home
+    </a>
+    <a href="features.html">
+     Features
+    </a>
+    <a href="#">
+     About
+    </a>
+    <a href="#">
+     Contact
+    </a>
+   </nav>
+   <button class="openbtn" onclick="openNav()">
+    ☰ Menu
+   </button>
   </header>
-  <main class="container mx-auto px-4 py-16 flex items-center justify-between">
-   <div class="w-1/2">
-    <h1 class="text-5xl font-bold text-blue-600">
-     WELLNESS CONNECT &hearts;
-     <i class="fas fa-plus-circle">
-     </i>
+  <div class="sidebar" id="mySidebar">
+   <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">
+    ×
+   </a>
+   <a href="#">
+    Home
+   </a>
+   <a href="features.html">
+    Features
+   </a>
+   <a href="#">
+    About
+   </a>
+   <a href="#">
+    Contact
+   </a>
+  </div>
+  <main>
+   <div class="text-section">
+    <h1>
+     HEALTH CARE
     </h1>
-    <p class="mt-4 text-gray-600">
-     Curabitur efficitur porta dolor, eu fermentum qu accumsan quis. Curabitur placerat erat facilisis, rutrum ante non, mattis lacus. Donec vitae augi nisl aliquam euismod eu eget orci si hasellusori.
+    <p>
+     Healthcare is an User-Friendly android application which analyses user's health using various sensors in a mobile phone and helps the patient keep track of their mental health 
+
     </p>
-    <button class="mt-8 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-full shadow-md hover:bg-gray-100">
+    <button>
      Learn more
     </button>
    </div>
-   <div class="w-1/2">
-    <img alt="Illustration of healthcare technology with doctor and medical data on screens" class="w-full" height="100" src="https://storage.googleapis.com/a1aa/image/3seZSdNtCswiFaH1DZckGsiSTBtixL8x7U1ucFXGl9jAu9zJA.jpg" width="350"/>
+   <div class="image-section">
+    <img alt="Illustration of healthcare technology with doctor and medical data on screens" height="400" src="https://storage.googleapis.com/a1aa/image/Exk1SuPkk7bQH594Nqa4Mi0OFHeGVHahtw5ug4UwsqsbvenTA.jpg" width="600"/>
    </div>
   </main>
+  <script>
+   function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+  </script>
  </body>
 </html>

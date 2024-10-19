@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://unpkg.com/compromise"></script> <!-- NLP library -->
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chatbox { width: 50%; margin: 0 auto; padding: 10px; background-color: #f0f0f0; }
+        #messages { height: 300px; overflow-y: scroll; background-color: white; padding: 10px; }
+        .message { margin-bottom: 10px; }
+        .user { font-weight: bold; color: blue; }
+        .bot { font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+
+<div id="chatbox">
+    <div id="messages"></div>
+    <input type="text" id="user-input" placeholder="Type your message here" style="width: 90%;">
+    <button onclick="handleUserMessage()">Send</button>
+</div>
+
+<script>
+    // Patterns and Responses
+    const patternsResponses = {
+        "feeling stressed": "It sounds like you're feeling overwhelmed. Would you like to try some relaxation techniques?",
+        "feeling anxious": "Anxiety can be hard to manage. Do you want to talk about what’s causing this?",
+        "can't sleep": "Sleep troubles can be difficult. Have you tried relaxation exercises before bed?",
+        "feel alone": "It’s okay to feel lonely sometimes. Do you have anyone you trust to talk to about this?",
+        "need help": "Seeking help is an important step. I can assist you in finding resources or a mental health professional.",
+        "feel hopeless": "I'm sorry to hear that. Please remember that things can get better. Would you like some resources for support?",
+        "breathing exercise": "Sure, here's one: Breathe in slowly for 4 seconds, hold your breath for 4 seconds, and exhale slowly for 4 seconds. Try this for a few minutes.",
+        "exercise help": "Exercise can be a great way to reduce stress. Do you need help finding some exercises that might help?",
+        "talk to someone": "Talking to someone can help. Would you like assistance in finding a counselor or therapist?",
+        "feel down": "It’s okay to feel low sometimes. Do you want to share more about what’s going on?",
+        "sad": "I'm really sorry you're feeling sad. Is there anything specific that's making you feel this way?",
+        "frustrated": "Frustration can be tough. Would you like some techniques for calming down?",
+        "feel better": "I’m glad to hear that! If there’s anything else I can assist you with, feel free to ask.",
+    };
+
+    // Function to correct typos using a third-party service or API (Placeholder)
+    function correctTypos(userInput) {
+        // Placeholder: You can integrate a spell checker API here (e.g., Grammarly API or a custom API)
+        return userInput;  // For now, we return the input as is.
+    }
+
+    // Function to get sentiment of the user input using a sentiment analysis API (Placeholder)
+    function getSentiment(userInput) {
+        // Placeholder: You can use an external sentiment analysis API here
+        // For simplicity, let's simulate sentiment detection:
+        const positiveWords = ["good", "happy", "better", "excited"];
+        const negativeWords = ["sad", "bad", "frustrated", "hopeless"];
+
+        if (positiveWords.some(word => userInput.includes(word))) {
+            return 'positive';
+        } else if (negativeWords.some(word => userInput.includes(word))) {
+            return 'negative';
+        } else {
+            return 'neutral';
+        }
+    }
+
+    // Function to match keywords in user input with responses
+    function getResponse(userInput) {
+        userInput = userInput.toLowerCase();  // Case-insensitive matching
+        for (const [pattern, response] of Object.entries(patternsResponses)) {
+            if (userInput.includes(pattern)) {
+                return response;
+            }
+        }
+        return "I'm here to listen. Can you tell me more about how you're feeling?";
+    }
+
+    // Function to handle user input
+    function handleUserMessage() {
+        const userInput = document.getElementById('user-input').value;
+        if (!userInput) return;
+
+        addMessage('user', userInput);
+
+        // Correct any typos in user input (Placeholder)
+        const correctedInput = correctTypos(userInput);
+
+        // Analyze sentiment of corrected input
+        const sentiment = getSentiment(correctedInput);
+
+        // Get response based on keyword detection and sentiment
+        let response;
+        if (sentiment === 'positive') {
+            response = "I'm glad you're feeling good! How can I assist you further?";
+        } else if (sentiment === 'negative') {
+            response = "I'm sorry to hear that you're feeling this way. How can I support you?";
+        } else {
+            response = getResponse(correctedInput);
+        }
+
+        addMessage('bot', response);
+        document.getElementById('user-input').value = '';  // Clear input field
+    }
+
+    // Function to display messages in the chatbox
+    function addMessage(sender, message) {
+        const messagesDiv = document.getElementById('messages');
+        const messageElem = document.createElement('div');
+        messageElem.classList.add('message', sender);
+        messageElem.innerHTML = `<span class="${sender}">${sender === 'user' ? 'You' : 'Bot'}:</span> ${message}`;
+        messagesDiv.appendChild(messageElem);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;  // Scroll to the bottom
+    }
+</script>
+
+</body>
+</html>

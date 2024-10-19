@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jfif" height="50px" width="50px" alt="Logo Image">
+            <a class="Logo-text" href="Wellness.html">Wellness Connect</a>
+        </div>
+        <button class="openbtn" onclick="openNav()">☰ Menu</button>
+    </header>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="Wellness.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <main>
+        <div class="Logo">
+               <p><img src="Instagram_logo_2016.svg.png" height="50px" width="50px" alt="insta Img"><p>
+               <p><img src="facebook-logo-transparent-background-free-png.webp" height="50px" width="50px" alt="Fb Img"><p>
+               <p><img src="gmail-02.png" height="50px" width="50px" alt="gmail Img"> <p>       
+        </div>
+        
+    </main>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>

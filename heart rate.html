@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Monitor</title>
+    <script src="heart_rate.js" defer></script>
+    <style>
+        video, canvas {
+            display: none;
+        }
+        .display {
+            font-size: 1.5rem;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        /* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Heading Styles */
+h1 {
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+/* Video Styles */
+video {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #4A90E2;
+}
+
+/* Canvas Styles */
+canvas {
+    display: none; /* Hide the canvas since we don't need to show it */
+}
+
+/* Message Styles */
+.message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Heart Rate Styles */
+.heart-rate {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #E74C3C;
+    font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .message, .heart-rate {
+        font-size: 1em;
+    }
+}
+
+    </style>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Heart Rate Monitor</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Heart Rate Monitor</h1>
+            <video id="video" autoplay></video>
+            <canvas id="canvas"></canvas>
+            <div id="message" class="message"></div>
+            <div id="heartRate" class="heart-rate"></div>
+        </div>
+        <script src="heart rate.html"></script>
+    </body>
+    </html>
+    
+</body>
+</html>
